@@ -1,19 +1,25 @@
 import CartWidget from "../CartWidget/CartWidget";
-// import styles from "./styles/styles.module.scss";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
+  const navigateToProducts = () => {
+    navigate("/products");
+  };
+
   return (
-    <div className='flex items-center justify-between px-10 py-5 bg-neutral-300'>
-      <img
-        className='w-20'
-        src='https://1000marcas.net/wp-content/uploads/2019/11/Logo-Nike-1.png'
-        alt='logo-icon'
-      />
+    <div className='flex items-center justify-between px-10 py-5 bg-slate-400'>
       <ul className='flex'>
-        <li className='mx-5'>Home</li>
-        <li className='mx-5'>AboutMe</li>
-        <li className='mx-5'>Contact</li>
+        <li className='mx-5 text-zinc-50'>
+          <Link to='/'>Home</Link>
+        </li>
+        <li className='mx-5 text-zinc-50'>
+          <button onClick={navigateToProducts}>Productos</button>
+        </li>
+        <li className='mx-5 text-zinc-50'>Contacto</li>
       </ul>
+
       <CartWidget />
     </div>
   );
